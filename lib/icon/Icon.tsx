@@ -1,18 +1,20 @@
+
 import React from 'react';
 import './importIcons';
-import './icon.scss'
+import './icon.scss';
 
-interface iconProps {
+interface iconProps extends React.SVGAttributes<SVGElement> {
 	name: string;
 }
 
 const Icon: React.FunctionComponent<iconProps> = (props) => {
 	return (
-		<span>
-		  <svg className='lianui-icon'>
+		<svg
+			className="lianui-icon"
+			{...props}
+		>
 			<use xlinkHref={`#${props.name}`}/>
-		  </svg>
-    	</span>
+		</svg>
 	);
 };
 export default Icon;
