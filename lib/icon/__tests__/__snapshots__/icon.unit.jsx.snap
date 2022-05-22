@@ -1,11 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`button 是个 div 1`] = `
+exports[`icon render successfully 1`] = `
 <svg
   className="lianui-icon"
 >
   <use
-    xlinkHref="#qq"
+    xlinkHref="#alipay"
   />
 </svg>
 `;
