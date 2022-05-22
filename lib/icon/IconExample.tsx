@@ -1,10 +1,11 @@
 import React from 'react';
 import Icon from './Icon';
-
-const IconExample: React.FunctionComponent = () => {
+import {RouteComponentProps} from 'react-router-dom';
+type Props = { component: React.FunctionComponent } & RouteComponentProps;
+const IconExample: React.FunctionComponent <Props> = ({ component: Component, ...rest }) => {
 	return (
 		<div>
-			<Icon name="qq"/>
+			<Icon {...rest} name="qq"/>
 		</div>
 	);
 };
