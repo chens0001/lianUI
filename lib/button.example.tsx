@@ -2,7 +2,7 @@ import React from 'react';
 
 const ButtonExample: React.FunctionComponent = () => {
   return (
-    <div>hihihi</div>
+    <div>button组件</div>
   );
 };
 
