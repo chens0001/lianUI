@@ -17,5 +17,9 @@ const Layout: React.FunctionComponent<Props> = (props) => {
 		<div className={sc({'': true, hasAside}, {extra: className})} {...restProps}>{props.children}</div>
 	);
 };
-
 export default Layout;
+export {Layout};
+export {default as Aside} from './aside';
+export {default as Content} from './content';
+export {default as Footer} from './footer';
+export {default as Header} from './header';
