@@ -8,13 +8,15 @@ import DialogExample from './lib/dialog/dialog.example';
 import LayoutExample from './lib/layout/layout.example'
 import {Aside, Content, Footer, Header, Layout,} from './lib/layout/layout';
 
+const logo = require('./Logo.png');
+console.log(logo)
 
 ReactDOM.render(
 	<Router>
 		<Layout className="site-page">
 			<Header className="site-header">
 				<div className="logo">
-					<div>logo</div>
+					<img src={logo} width="48" height="48" alt=""/>
 					<span> Lian-ui </span>
 				</div>
 			</Header>
