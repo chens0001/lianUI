@@ -4,6 +4,8 @@ import Aside from './aside';
 import Content from './content';
 import Header from './header';
 import Footer from './footer';
+import './layout.example.scss';
+
 export default function () {
 	return (
 		<>
@@ -52,5 +54,5 @@ export default function () {
 				</Layout>
 			</div>
 		</>
-	)
+	);
 }
