@@ -21,6 +21,7 @@ const Dialog: React.FunctionComponent<DialogProps> = (props) => {
 	const sc = scopedClassMaker('lian-ui-dialog');
 
 	const onclickMask: React.MouseEventHandler = (e) => {
+		console.log('click')
 		maskClosable && onClose(e);
 	};
 	const DialogContent = visible && <>
