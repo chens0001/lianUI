@@ -24,9 +24,9 @@ const Dialog: React.FunctionComponent<DialogProps> = (props) => {
 		maskClosable && onClose(e);
 	};
 	const DialogContent = visible && <>
-		{ maskVisible && <div className={sc('mask')} onClick={onclickMask} /> }
+		{maskVisible && <div className={sc('mask')} onClick={onclickMask}/>}
       <div className={sc('')}>
-          <div className={sc('close')} onClick={onClose}>
+          <div className={sc('close')} onClick={onclickMask}>
               <Icon name="close"/>
           </div>
           <header className={sc('header')}>
@@ -95,7 +95,8 @@ const alert = (content: string) => {
 	const close = modal(content, [buttons]);
 };
 Dialog.defaultProps = {
-	maskVisible: true
+	maskVisible: true,
+	maskClosable: true
 };
 
 export {alert, modal, confirm};
