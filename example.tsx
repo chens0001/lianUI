@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import {HashRouter as Router, Route, NavLink} from 'react-router-dom';
 import './example.scss'
-import ButtonExample from './lib/button.example';
+import ButtonExample from './lib/button/button.example';
 import DialogExample from './lib/dialog/dialog.example';
 import LayoutExample from './lib/layout/layout.example'
 import {Aside, Content, Footer, Header, Layout,} from './lib/layout/layout';
@@ -28,6 +28,12 @@ ReactDOM.render(
 							<NavLink to="/icon">Icon</NavLink>
 						</li>
 						<li>
+							<NavLink to="/button">button</NavLink>
+						</li>
+						<li>
+							<NavLink to="/input">input</NavLink>
+						</li>
+						<li>
 							<NavLink to="/dialog">对话框</NavLink>
 						</li>
 						<li>
@@ -40,6 +46,8 @@ ReactDOM.render(
 				</Aside>
 				<Content className="site-main">
 					<Route path="/icon" component={IconDemo}/>
+					<Route path="/button" component={ButtonExample}/>
+					<Route path="/input" component={InputExample}/>
 					<Route path="/button" component={ButtonExample}/>
 					<Route path="/dialog" component={DialogExample}/>
 					<Route path="/layout" component={LayoutExample}/>
