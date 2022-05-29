@@ -2,7 +2,7 @@ import * as React from 'react';
 import {ReactFragment} from 'react';
 
 export interface FormValue {
-	[K: string]: any
+	[K: string]: any;
 }
 
 interface Props {
@@ -10,6 +10,7 @@ interface Props {
 	fields: Array<{ name: string, label: string, input: { type: string } }>;
 	onSubmit: React.FormEventHandler<HTMLFormElement>;
 	buttons: ReactFragment;
+	errors: { [K: string]: string[] };
 	onChange: (value: FormValue) => void;
 }
 
@@ -21,9 +22,9 @@ const Form: React.FunctionComponent<Props> = (props) => {
 		const newFormValue = {
 			..._formData,
 			[name]: value
-		}
-		onChange(newFormValue)
-	}
+		};
+		onChange(newFormValue);
+	};
 
 	return (
 		<form onSubmit={onSubmit}>
