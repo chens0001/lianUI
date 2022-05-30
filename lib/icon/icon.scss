@@ -1,6 +1,21 @@
-.fui-icon {
-  width: 1.2em;
-  height: 1.2em;
-  display: inline-block;
-  fill: currentColor;
+
+
+@import 'lib/helper';
+
+@keyframes keyframes-spin {
+  0% {transform: rotate(0);}
+  100% {transform: rotate(360deg);}
+}
+@mixin spin() {
+  animation: keyframes-spin 1s linear infinite;
+}
+.lian-icon { width: 1.1em; height: 1.1em; color: inherit; fill: currentColor;
+  &-wrapper {
+    display: inline-flex; align-items: center; justify-content: center; margin: 0 .2em;
+    &:first-child { margin-left: 0; }
+    &:last-child { margin-left: 0; }
+  }
+  &-loading {
+    @include spin;
+  }
 }

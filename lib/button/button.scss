@@ -1,28 +1,79 @@
-@import "../helper";
-.lian-ui-button {
-  padding: 4px 16px;
-  line-height: 22px;
-  transition: all 250ms;
-  cursor: pointer;
-  &:focus {
-    outline: none;
+@import 'lib/helper';
+#{component(button)} {transition: all $transition-duration;
+  display: inline-flex; vertical-align: middle; justify-content: center; align-items: center; border-radius: $input-border-radius; border: none;
+  margin-left: 4px; margin-right: 4px; line-height: 1.2;
+  position: relative; white-space: nowrap;
+  & { height: $input-height; font-size: 14px; padding: 0 16px;
+    &-big { height: $input-height-big; font-size: 20px; padding: 0 24px; }
+    &-small { height: $input-height-small; font-size: 12px; padding: 0 12px; }
   }
-  &-normal {
-    color: #333;
-    border: 1px solid lighten(#333, 50%);
+  &:first-child { margin-left: 0; }
+  &:last-child { margin-right: 0; }
+  &:focus {outline: none;}
+  &:hover {cursor: pointer;}
+  &:focus, &:hover { box-shadow: 0 1px 3px fade_out(black, 0.6); }
+  &#{component(button, ghost)} { background: transparent;
+    &:focus, &:hover { box-shadow: none; }
+  }
+  &-default { border: 1px solid $input-border-color; color: $text-color;
     background: white;
-    &:hover, &:focus {
-      border-color: $main-color;
-      color: $main-color;
+    &:focus, &:hover { color: $main-color; border-color: $main-color; }
+    &#{component(button, ghost)} { color: $white; border-color: $white;
+      &:focus, &:hover { color: $main-color; border-color: $main-color; }
+    }
+    &#{component(button, disabled)} {
+      &, &:hover { border-color: #ccc; color: #ccc; box-shadow: none; cursor: not-allowed; }
+    }
+  }
+  @mixin colored-button($color) {
+    border: 1px solid darken($color, 5%); background: darken($color, 5%); color: $white;
+    &:focus, &:hover { background: $color; }
+    &#{component(button, ghost)} { color: darken($color, 5%);
+      &:focus, &:hover { color: $white; }
+    }
+    &#{component(button, disabled)} {
+      &, &:hover { background: lighten($color, 25%); border-color: lighten($color, 25%); box-shadow: none; cursor: not-allowed; }
+    }
+    &#{component(button, ghost)}#{component(button, disabled)} {
+      background: transparent; color: desaturate($color, 50%); border-color: desaturate($color, 50%);
     }
   }
   &-important {
-    color: white;
-    border: 1px solid $main-color;
-    background: $main-color;
-    &:hover, &:focus {
-      background: lighten($main-color, 10%);
-      border-color: lighten($main-color, 10%);
+    @include colored-button($main-color);
+  }
+  &-danger {
+    @include colored-button($red);
+  }
+  &-loadingIcon {
+    &-animationStart {
+      margin-left: -16px !important;
+      opacity: 0;
+    }
+    &-animationEnd {
+      margin-left: 0 !important;
+      opacity: 1;
+      transition: margin-left 200ms, opacity 200ms;
     }
   }
+  @mixin badge($height) {
+    text-align: center; border-radius: 50%; height: $height; min-width: $height; line-height: $height;
+    right: 0; top: 0; font-size: $height / 1.6;
+    transform: translate(50%, -50%);
+  }
+  &-badge { background: $red; color: $white;position: absolute;
+    @include badge(20px);
+  }
+  &-big &-badge {
+    @include badge(24px);
+  }
+  &-small &-badge {
+    @include badge(16px);
+    font-size: 12px;
+    > span {
+      display: inline-block;
+      $scale: 10 / 12;
+      transform: scale($scale);
+    }
+  }
+  &::-moz-focus-inner { border: 0; }
 }
