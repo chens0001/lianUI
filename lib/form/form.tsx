@@ -39,20 +39,20 @@ const Form: React.FunctionComponent<Props> = (props) => {
 	};
 	return (
 		<form onSubmit={onSubmit}>
-			<table className="fui-form-table">
+			<table className="lain-ui-form-table">
 				<tbody>
 				{props.fields.map(f =>
-					<tr className={classes('fui-form-tr')} key={f.name}>
-						<td className="fui-form-td">
-							<span className="fui-form-label">{f.label}</span>
+					<tr className={classes('lain-ui-form-tr')} key={f.name}>
+						<td className="lain-ui-form-td">
+							<span className="lain-ui-form-label">{f.label}</span>
 						</td>
-						<td className="fui-form-td">
-							<Input className="fui-form-input"
+						<td className="lain-ui-form-td">
+							<Input className="lain-ui-form-input"
 										 type={f.input.type}
 										 value={formData[f.name]}
 										 onChange={(e) => onInputChange(f.name, e.target.value)}
 							/>
-							<div className="fui-form-error">{
+							<div className="lain-ui-form-error">{
 								props.errors[f.name] ?
 									(props.errorsDisplayMode === 'first' ?
 										transformError!(props.errors[f.name][0]) : props.errors[f.name].map(transformError!).join()) :
@@ -61,9 +61,9 @@ const Form: React.FunctionComponent<Props> = (props) => {
 						</td>
 					</tr>
 				)}
-				<tr className="fui-form-tr">
-					<td className="fui-form-td"/>
-					<td className="fui-form-td">
+				<tr className="lain-ui-form-tr">
+					<td className="lain-ui-form-td"/>
+					<td className="lain-ui-form-td">
 						{props.buttons}
 					</td>
 				</tr>
