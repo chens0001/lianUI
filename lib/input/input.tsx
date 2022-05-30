@@ -1,8 +1,14 @@
-import React from 'react';
+import React, {InputHTMLAttributes} from 'react';
+import classes from '../helpers/classes';
+import './input.scss'
+interface Props extends InputHTMLAttributes<HTMLInputElement> {
+	
+}
 
-function Input() {
+const Input: React.FunctionComponent<Props> = (props) => {
+	const {className, ...rest} = props
 	return (
-		<div>Input</div>
+		<input type="text" className={classes('lian-input', className)}  {...rest}/>
 	);
 }
 

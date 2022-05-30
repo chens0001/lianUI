@@ -8,6 +8,7 @@ import LayoutExample from './lib/layout/layout.example'
 import {Aside, Content, Footer, Header, Layout,} from './lib/layout/layout';
 import IconDemo from './lib/icon/icon.demo';
 import FormExample from './lib/form/form.example';
+import InputExample from './lib/input/InputExample';
 
 const logo = require('./Logo.png');
 

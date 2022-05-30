@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {ReactFragment} from 'react';
 import classes from '../helpers/classes';
+import Input from '../input/input';
 
 export interface FormValue {
 	[K: string]: any;
@@ -48,10 +49,11 @@ const Form: React.FunctionComponent<Props> = (props) => {
 							<span className="fui-form-label">{f.label}</span>
 						</td>
 						<td className="fui-form-td">
-							<input className="fui-form-input"
-										 type={f.input.type}
-										 value={_formData[f.name]}
-										 onChange={(e) => onInputChange(f.name, e.target.value)}
+							<Input
+								className="fui-form-input"
+								type={f.input.type}
+								value={_formData[f.name]}
+								onChange={(e) => onInputChange(f.name, e.target.value)}
 							/>
 							<div className="fui-form-error">{
 								props.errors[f.name] ?
