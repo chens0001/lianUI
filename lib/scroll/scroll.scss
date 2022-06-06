@@ -1,0 +1,28 @@
+.lian-scroll {
+  position: relative;
+  overflow: hidden;
+  &-inner {
+    overflow: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  &-track {
+    width: 10px;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    &-bar-inner {
+      height: 30px;
+      background: rgba(128,128,128, .4);
+      position: absolute;
+      top: 0;
+      right: 2px;
+      width: 8px;
+      border-radius: 6px;
+    }
+  }
+}
